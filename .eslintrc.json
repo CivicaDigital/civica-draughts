@@ -7,6 +7,15 @@
   "rules": {
     "no-console": "off",
     "comma-dangle": "off",
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "linebreak-style": "off",
+    "no-plusplus": "off",
+    "no-restricted-syntax": "off",
+    "no-bitwise": "off", 
+    "react/destructuring-assignment": "never",
+    "react/prop-types": "off",
+    "no-param-reassign": "off",
+    "import/prefer-default-export": "off",
+    "max-len": ["error", { "code": 110 }]
   }
 }

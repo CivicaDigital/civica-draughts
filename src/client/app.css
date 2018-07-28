@@ -3,6 +3,10 @@ h1 {
   text-align: center;
 }
 
+.selected {
+  background-color: rgb(111, 210, 243);
+}
+
 .highlighted {
   background-color: yellow;
 }
@@ -15,12 +19,14 @@ h1 {
   background-color: whitesmoke;
 }
 
-
-
 .square {
   font-size: 6em;
   height: 1em;
   width: 1em;
   line-height: 1em;
   padding: 0;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  outline: none
 }

@@ -1,82 +1,73 @@
-import React, { Component } from "react";
-import Board from "./Board";
-import "./app.css";
+import React, { Component } from 'react';
+import queryString from 'query-string';
+import DraughtsBoard from './DraughtsBoard';
+import Board from './board';
+import './app.css';
 
+/**
+ * Top level component for this application.
+ * @summary Wiring together of components, business logic and POJO state.
+ * @todo Make player turn display more stylish. Display history and allow undo.
+ * State could be moved to separate data store objects, with corresponding event subscription
+ *{@link https://codeutopia.net/blog/2016/02/01/react-application-data-flow-where-and-how-to-store-your-data/}
+ */
 export default class App extends Component {
+  /**
+  * Constructor.
+  * @param {object} props The React props.
+  */
   constructor(props) {
     super(props);
-    const squares = this.getSquares(8);
+
+    /** Stores the state of the board and enables user interactions. */
+    this.board = new Board(8);
+
+    /** Stores the state of this component. */
     this.state = {
       username: null,
-      squares: squares,
-      squaresById: this.getSquaresById(squares)
+      squares: this.board.squares,
+      turn: this.board.turn
     };
   }
 
+  /**
+  * Starts a new game based on the position defined in the URL.
+  */
   componentDidMount() {
-    fetch("/api/getUsername")
-      .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
+    const parsed = queryString.parse(window.location.search);
+    this.setState({ squares: this.board.startGame(parsed.fen), turn: this.board.turn });
   }
 
-  handleClick(square) {
-    alert(square.identifier);
+  /**
+  * Handles a click on a board square.
+  * @param {Square} square The square that was clicked.
+  */
+  handleSquareClick(square) {
+    this.board.squareClicked(square);
+    this.setState({ squares: this.board.squares, turn: this.board.turn });
   }
 
-  isEven(n) {
-    return n % 2 == 0;
-  }
-
-  getSquares(width) {
-    let identifier = 0;
-    let squares = new Array(width);
-    for (let i = 1; i <= width; i++) {
-      squares[i - 1] = new Array(width);
-      let evenRow = this.isEven(i);
-      for (let j = 1; j <= width; j++) {
-        let square = {
-          playable: false,
-          highlighted: false,
-          identifier: null
-        };
-        squares[i - 1][j - 1] = square;
-        if (evenRow ^ this.isEven(j)) {
-          identifier++;
-          square.playable = true;
-          square.identifier = identifier;
-        }
-      }
-    }
-    return squares;
-  }
-
-  getSquaresById(squares) {
-    return squares.reduce((o, item) => {
-      if (item.identifier) {
-        o[identifier] = item;
-      }
-      return o;
-    });
-  }
-
+  /**
+  * Returns the React elements forming the page for which React will update the DOM accordingly.
+  */
   render() {
-    const piece1 = { black: true, king: true };
-    const piece2 = { black: false, king: true };
-
-    this.state.squaresById[1].piece = piece1;
-    this.state.squaresById[2].piece = piece2;
-    const current = { squares: this.state.squares };
+    const { username = 'Loading.. please wait!', squares, turn } = this.state;
+    const turnText = turn && turn.blackTurn ? 'Black turn' : 'White turn';
     return (
       <div>
         <div>
-          {this.state.username ? (
-            <h1>Hello {this.state.username}</h1>
-          ) : (
-            <h1>Loading.. please wait!</h1>
-          )}
+          <h1>
+            { username }
+          </h1>
+          <div>
+            { turnText }
+          </div>
         </div>
         <div>
-          <Board squares={current.squares} onClick={(square) => this.handleClick(square)} />
+          <DraughtsBoard
+            squares={squares}
+            onClick={square => this.handleSquareClick(square)}
+          />
         </div>
       </div>
     );
