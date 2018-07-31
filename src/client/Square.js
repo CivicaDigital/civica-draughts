@@ -45,6 +45,7 @@ const Square = props => (
     key={props.square.identifier.toString()}
     onClick={props.onClick}
     type="button"
+    id={`square-${props.square.identifier.toString()}`}
   >
     {getDisplay(props.square.piece)}
   </button>
