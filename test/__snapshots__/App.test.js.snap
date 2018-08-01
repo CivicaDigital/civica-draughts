@@ -3,7 +3,9 @@
 exports[`renders correctly when the board is empty 1`] = `
 <div>
   <div>
-    <h1 />
+    <h1>
+      Draughts
+    </h1>
     <div>
       White turn
     </div>

@@ -1,26 +1,4 @@
 /**
- * Represents the state of a turn, including the moves made and the start position.
- */
-export class Turn {
-  /**
-  * Constructor.
-  * @param {boolean} blackTurn A value indicating whether it was black's turn.
-  * @param {Array<Piece>} startPosition The pieces at the start of the turn, indexed
-  * in accordance with the square they are on.
-  */
-  constructor(blackTurn, startPosition) {
-    /** @param blackTurn A value indicating whether it was black's turn. */
-    this.blackTurn = blackTurn;
-
-    /** The pieces at the start of the turn, indexed in accordance with the square they are on. */
-    this.startPosition = startPosition;
-
-    /** The moves taking place within the turn */
-    this.moves = [];
-  }
-}
-
-/**
  * Represents the state of a piece, indicating the colour of the piece and whether it's a king.
  */
 export class Piece {
@@ -35,6 +13,31 @@ export class Piece {
 
     /** A value indicating whether the piece is a king. */
     this.king = king;
+  }
+}
+
+/**
+ * Represents a potential move from the square to which this object is attached, including
+ * the move to an adjacent square and the jump move to the square following. Used to determine move validity.
+ */
+export class PotentialMove {
+  /**
+  * Constructor.
+  * @param {boolean} black A value indicating whether this is black move i.e. down the board.
+  * @param {number} move The unique identifier of the square immediately diagonally adjacent.
+  * @param {number} jump The unique identifier of the square that can be jumped to, over the
+  * square immediately diagonally adjacent.
+  */
+  constructor(black, move, jump) {
+    /** A value indicating whether this is black move i.e. down the board. */
+    this.black = black;
+
+    /** The unique identifier of the square immediately diagonally adjacent. */
+    this.move = move;
+
+    /** The unique identifier of the square that can be jumped to, over the
+     * square immediately diagonally adjacent. */
+    this.jump = jump;
   }
 }
 
@@ -70,6 +73,28 @@ export class Square {
 }
 
 /**
+ * Represents the game environment: a collection of squares, the relative positions of which define
+ * the potential moves of the pieces.
+ */
+export class Board {
+  /**
+  * Constructor.
+  * @param {number} size The width/length of the board in squares.
+  */
+  constructor(size, squares, playableSquares) {
+    /** The width/length of the board in squares. */
+    this.size = size;
+
+    /** A representation of the board, made up of playable/non-playable squares indexed by their row
+     * and column position. */
+    this.squares = squares;
+
+    /** The playable squares of the board, indexed based on their identifier. */
+    this.playableSquares = playableSquares;
+  }
+}
+
+/**
  * Represents a move, from origin to destination square, including any jumped square and
  * the resulting end position of all pieces.
  */
@@ -90,32 +115,43 @@ export class Move {
     /** The unique identifier of the square the move jumps over, if any. */
     this.jumped = jumped;
 
-    /** The pieces at the start of the turn, indexed in accordance with the square they are on. */
+    /** The pieces at the end of this move, indexed in accordance with the square they are on. */
     this.endPosition = [];
   }
 }
 
 /**
- * Represents a potential move from the square to which this object is attached, including
- * the move to an adjacent square and the jump move to the square following. Used to determine move validity.
+ * Represents the state of a turn, including the moves made and the start position.
  */
-export class PotentialMove {
+export class Turn {
   /**
   * Constructor.
-  * @param {boolean} black A value indicating whether this is black move i.e. down the board.
-  * @param {number} move The unique identifier of the square immediately diagonally adjacent.
-  * @param {number} jump The unique identifier of the square that can be jumped to, over the
-  * square immediately diagonally adjacent.
+  * @param {boolean} blackTurn A value indicating whether it was black's turn.
+  * @param {Array<Piece>} startPosition The pieces at the start of the turn, indexed
+  * in accordance with the square they are on.
   */
-  constructor(black, move, jump) {
-    /** A value indicating whether this is black move i.e. down the board. */
-    this.black = black;
+  constructor(blackTurn, startPosition) {
+    /** @param blackTurn A value indicating whether it was black's turn. */
+    this.blackTurn = blackTurn;
 
-    /** The unique identifier of the square immediately diagonally adjacent. */
-    this.move = move;
+    /** The pieces at the start of the turn, indexed in accordance with the square they are on. */
+    this.startPosition = startPosition;
 
-    /** The unique identifier of the square that can be jumped to, over the
-     * square immediately diagonally adjacent. */
-    this.jump = jump;
+    /** The moves taking place within the turn */
+    this.moves = [];
+  }
+}
+
+/**
+* Represents a game of draughts: the sequence of turns from the commencement of play until a win
+or draw is declared.
+*/
+export class Game {
+  /**
+  * Constructor.
+  */
+  constructor() {
+    /** A record of the turns of the game so far. */
+    this.turns = [];
   }
 }

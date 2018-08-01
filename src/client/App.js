@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import queryString from 'query-string';
 import DraughtsBoard from './DraughtsBoard';
-import Board from './board';
+import BoardController from './board-controller';
 import './app.css';
 
 /**
@@ -20,13 +20,12 @@ export default class App extends Component {
     super(props);
 
     /** Stores the state of the board and enables user interactions. */
-    this.board = new Board(8);
+    this.boardController = new BoardController(8);
 
     /** Stores the state of this component. */
     this.state = {
-      username: null,
-      squares: this.board.squares,
-      turn: this.board.turn
+      squares: this.boardController.board.squares,
+      turn: this.boardController.board.turn
     };
   }
 
@@ -35,7 +34,7 @@ export default class App extends Component {
   */
   componentDidMount() {
     const parsed = queryString.parse(window.location.search);
-    this.setState({ squares: this.board.startGame(parsed.fen), turn: this.board.turn });
+    this.setState({ squares: this.boardController.startGame(parsed.fen), turn: this.boardController.turn });
   }
 
   /**
@@ -43,21 +42,21 @@ export default class App extends Component {
   * @param {Square} square The square that was clicked.
   */
   handleSquareClick(square) {
-    this.board.squareClicked(square);
-    this.setState({ squares: this.board.squares, turn: this.board.turn });
+    this.boardController.squareClicked(square);
+    this.setState({ squares: this.boardController.board.squares, turn: this.boardController.board.turn });
   }
 
   /**
   * Returns the React elements forming the page for which React will update the DOM accordingly.
   */
   render() {
-    const { username = 'Loading.. please wait!', squares, turn } = this.state;
+    const { squares, turn } = this.state;
     const turnText = turn && turn.blackTurn ? 'Black turn' : 'White turn';
     return (
       <div>
         <div>
           <h1>
-            { username }
+            Draughts
           </h1>
           <div>
             { turnText }

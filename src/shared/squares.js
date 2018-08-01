@@ -4,7 +4,7 @@
 * @todo The valid potential moves could instead be calculated on the fly or squares only created once.
 */
 
-import { Square, PotentialMove } from './data-types';
+import { Square, PotentialMove, Board } from './data-types';
 
 /**
  * Checks that the vector supplied represents a move to a square that exists on the board and,
@@ -109,7 +109,7 @@ function createSquares(size) {
  * @param {Array<Array<Square>>} squares The squares that make up the board.
  * @returns {Array<Square>} The playable squares of the board, indexed based on their identifier.
  */
-export function getPlayableSquares(squares) {
+function getPlayableSquares(squares) {
   return squares.reduce((accumulator, items) => {
     for (const square of items) {
       if (square.identifier > 0) {
@@ -121,13 +121,12 @@ export function getPlayableSquares(squares) {
 }
 
 /**
- * Creates the squares that make up the board and places the pieces on them.
+ * Creates a new version of the board and places the pieces on it.
  * @param {number} size The width/length of the board in squares.
  * @param {Array<Piece>} position The current pieces, indexed in accordance with the square they are on.
- * @returns {Array<Array<Square>>} A representation of the board, made up of playable/non-playable squares
- * indexed by their row and column position.
+ * @returns {Board} A representation of the board, its squares and their pieces.
  */
-export function createSquaresFromPosition(size, position) {
+export function createBoardFromPosition(size, position) {
   const squares = createSquares(size);
   const playableSquares = getPlayableSquares(squares);
   if (position) {
@@ -135,5 +134,5 @@ export function createSquaresFromPosition(size, position) {
       playableSquares[i].piece = position[i];
     }
   }
-  return squares;
+  return new Board(size, squares, playableSquares);
 }
