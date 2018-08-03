@@ -69,15 +69,11 @@ export default class BoardController {
   */
   selectSquareAndHighlightMoves(playableSquares, square) {
     BoardController.deselectAndUnhighlightAllSquares(playableSquares);
-    let atLeastOneMove = false;
     moves.getLegalMoves(playableSquares, square, this.turn.blackTurn)
       .forEach((move) => {
-        atLeastOneMove = true;
         playableSquares[move.destination - 1].highlighted = true;
       });
-    if (atLeastOneMove) {
-      square.selected = true;
-    }
+    square.selected = true;
   }
 
   /**
