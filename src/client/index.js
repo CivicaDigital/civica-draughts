@@ -7,6 +7,9 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import queryString from 'query-string';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const parsed = queryString.parse(window.location.search);
+
+ReactDOM.render(<App size={8} fen={parsed.fen} />, document.getElementById('root'));

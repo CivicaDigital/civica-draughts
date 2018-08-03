@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Square from './Square';
+import DraughtsBoardSquare from './DraughtsBoardSquare';
 import './app.css';
 
 /**
- * Renders the draughts board from its data structure comprising of squares.
- * @summary Nested components and functions, Array.prototype.map(), suppressing eslint.
- * @todo Being stateless, this class could become a pure JavaScript function/module.
- */
+* Renders the draughts board from its data structure comprising of squares.
+* @summary Nested components and functions, Array.prototype.map(), suppressing eslint.
+* @todo Being stateless, this class could become a pure JavaScript function/module.
+*/
 export default class DraughtsBoard extends Component {
   renderBoard(squares) {
     return squares.map((row, index) => (
@@ -19,11 +19,11 @@ export default class DraughtsBoard extends Component {
 
   /**
   * Returns the React elements that form the row of squares.
-  * @param {Array<Square>} row The row data.
+  * @param {Array<DraughtsBoardSquare>} row The row data.
   */
   renderRow(row) {
     return row.map(square => (
-      <Square
+      <DraughtsBoardSquare
         square={square}
         key={square.identifier.toString()}
         onClick={() => this.props.onClick(square)}

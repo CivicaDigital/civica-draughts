@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import queryString from 'query-string';
 import DraughtsBoard from './DraughtsBoard';
 import BoardController from './board-controller';
 import './app.css';
@@ -20,21 +19,20 @@ export default class App extends Component {
     super(props);
 
     /** Stores the state of the board and enables user interactions. */
-    this.boardController = new BoardController(8);
+    this.boardController = new BoardController(props.size);
 
     /** Stores the state of this component. */
     this.state = {
-      squares: this.boardController.board.squares,
-      turn: this.boardController.board.turn
+      squares: this.boardController.startGame(props.fen),
+      turn: this.boardController.turn
     };
   }
 
   /**
-  * Starts a new game based on the position defined in the URL.
+  * This is the pace to do any AJAX calls needed to initalise the component fully.
   */
   componentDidMount() {
-    const parsed = queryString.parse(window.location.search);
-    this.setState({ squares: this.boardController.startGame(parsed.fen), turn: this.boardController.turn });
+
   }
 
   /**
@@ -43,7 +41,7 @@ export default class App extends Component {
   */
   handleSquareClick(square) {
     this.boardController.squareClicked(square);
-    this.setState({ squares: this.boardController.board.squares, turn: this.boardController.board.turn });
+    this.setState({ squares: this.boardController.board.squares, turn: this.boardController.turn });
   }
 
   /**

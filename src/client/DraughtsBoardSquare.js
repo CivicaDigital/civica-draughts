@@ -7,7 +7,7 @@
 import React from 'react';
 // This class is imported to allow navigation via documentation type definitions so:
 // eslint-disable-next-line
-import { Square as SquareState } from '../shared/data-types';  // Alias to avoid conflict
+import { Square } from '../shared/data-types';  // Alias to avoid conflict
 import './app.css';
 
 function getDisplay(piece) {
@@ -21,7 +21,7 @@ function getDisplay(piece) {
 
 /**
  * Gets the CSS class for the square depending on its current state.
- * @param {SquareState} square The data for this board square.
+ * @param {Square} square The data for this board square.
  * @returns {string} The CSS class for the square.
  */
 function getClass(square) {
@@ -39,7 +39,7 @@ function getClass(square) {
 /**
  * Renders a draughts board square from its corresponding data structure.
  */
-const Square = props => (
+const DraughtsBoardSquare = props => (
   <button
     className={getClass(props.square)}
     key={props.square.identifier.toString()}
@@ -51,4 +51,4 @@ const Square = props => (
   </button>
 );
 
-export default Square;
+export default DraughtsBoardSquare;

@@ -14,12 +14,12 @@ import {
 
 /**
  * Determines whether the piece at the origin can move to the destination by virtue of direction
- * or it being a king.
+ * or it being a king. Note that this function is only exported for unit test demonstration purposes.
  * @param {Square} origin The square on which the piece currently resides.
  * @param {Square} destination The proposed destination square.
  * @returns {boolean} A value indicating whether the piece can move to the destination square.
  */
-function pieceCanMoveInThisDirection(origin, destination) {
+export function pieceCanMoveInThisDirection(origin, destination) {
   return origin.piece.king
     || (origin.piece.black ^ (origin.identifier > destination.identifier));
 }

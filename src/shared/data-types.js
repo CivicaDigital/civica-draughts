@@ -137,7 +137,7 @@ export class Turn {
     /** The pieces at the start of the turn, indexed in accordance with the square they are on. */
     this.startPosition = startPosition;
 
-    /** The moves taking place within the turn */
+    /** The moves taking place within the turn. */
     this.moves = [];
   }
 }
@@ -151,7 +151,7 @@ export class Game {
   * Constructor.
   */
   constructor() {
-    /** A record of the turns of the game so far. */
+    /** The sequence of turns of the game so far. */
     this.turns = [];
   }
 }
