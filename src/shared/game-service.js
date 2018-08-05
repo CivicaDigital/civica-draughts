@@ -5,14 +5,11 @@ import { Piece, Turn, Game } from './data-types';
 
 /**
 * Controls a game.
-* @summary Basic logic, Array.prototype.map().
-* @todo Make men into kings when they get to last row. Check for victory condition.
-* Get opponent move from server - maybe move this class to server and change first parameter of makeMove() to
-* be position to minimise data sent or use turns object if stateless.
+* @demonstrates Basic logic, Array.prototype.map().
+* @potential Make men into kings when they get to last row. Check for victory condition.
 */
-export default class GameController {
+export class GameService {
   /**
-  * Constructor.
   */
   constructor() {
     /** A record of the turns of the game so far. */

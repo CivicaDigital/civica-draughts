@@ -1,0 +1,38 @@
+{
+  "tags": {
+    "allowUnknownTags": ["demonstrates", "potential"]
+  },
+  "source": {
+    "include": [
+      "src"
+    ],
+    "exclude": [
+      ".git",
+      "node_modules"
+    ],
+    "includePattern": ".+\\.js(x|doc)?$"
+  },
+  "plugins": [
+  ],
+  "opts": {
+    "template": "node_modules/tui-jsdoc-template",
+    "destination": "docs/jsdoc",
+    "recurse": true
+  },
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": false,
+      "useLongnameInNav": true
+    },
+    "name": "Civica Draughts",
+    "footerText": "Copyright Civica Digital",
+    "logo": {
+      "url": "../../public/favicon.ico",
+      "width": "16px",
+      "height": "16px"
+    },
+    "useCollapsibles": true
+  }
+}

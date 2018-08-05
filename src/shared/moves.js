@@ -1,7 +1,8 @@
 /**
 * Functions for verifying and making of moves.
-* @summary Basic logic, Array.prototype.reduce(), Array.prototype.map().
-* @todo Needs testing.
+* @demonstrates Basic logic, Array.prototype.reduce(), Array.prototype.map().
+* @potential Needs testing.
+* @module moves
 */
 
 import {
@@ -120,7 +121,7 @@ function getPositionFromPlayableSquares(playableSquares) {
  * Moves the piece from the origin to the destination, providing the move is valid.
  * @param {Array<Square>} playableSquares The playable squares of the board, indexed as per their identifier.
  * @param {Square} origin The square on which the piece currently resides.
-  * @param {Square} destination The square on which the piece will reside following the move.
+ * @param {Square} destination The square on which the piece will reside following the move.
  * @param {boolean} blackTurn A value indicating whether it is black's turn to move.
  * @returns {Move} The move that was made or null if unsuccessful i.e. invalid.
 */

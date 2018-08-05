@@ -1,8 +1,9 @@
 /**
 * Functions for extracting position objects from FEN.
-* @summary ES6 fat arrow functions, a regex.
-* @todo Make the default position work for board sizes that are not 8x8. Validate that supplied FEN
+* @demonstrates ES6 fat arrow functions, a regex.
+* @potential Make the default position work for board sizes that are not 8x8. Validate that supplied FEN
 * has a valid number of pieces for the board size.
+* @module turns
 */
 
 import { Piece, Turn } from './data-types';

@@ -84,7 +84,6 @@ but we are going to take advantage of the new ES6 class syntax:
 ```JavaScript
 class Piece {
   /**
-  * Constructor.
   * @param {boolean} black A value indicating whether the piece is black.
   * @param {boolean} king A value indicating whether the piece is a king.
   */

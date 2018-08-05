@@ -8,12 +8,12 @@
     "build": "webpack --mode production",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "docs": "jsdoc -c jsdoc.config.json"
   },
   "author": "Simon Thomas",
   "license": "ISC",
   "dependencies": {
-    "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.3",
     "query-string": "^6.1.0",
     "react": "^16.3.1",
@@ -30,6 +30,7 @@
     "concurrently": "^3.5.1",
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^5.0.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.11.0",
@@ -42,6 +43,8 @@
     "nodemon": "^1.17.3",
     "react-test-renderer": "^16.4.1",
     "style-loader": "^0.21.0",
+    "taffydb": "^2.7.3",
+    "tui-jsdoc-template": "^1.2.2",
     "webpack": "^4.5.0",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.3"

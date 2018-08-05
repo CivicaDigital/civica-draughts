@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
-import App from '../../src/client/App';
+import { mount } from 'enzyme/build';
+import { App } from '../../src/client/App';
 
 /**
  * @type {App}

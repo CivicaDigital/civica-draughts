@@ -8,7 +8,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import queryString from 'query-string';
-import App from './App';
+import { App } from './App';
 
 const parsed = queryString.parse(window.location.search);
 

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import DraughtsBoardSquare from './DraughtsBoardSquare';
+import { DraughtsBoardSquare } from './DraughtsBoardSquare';
 import './app.css';
 
 /**
 * Renders the draughts board from its data structure comprising of squares.
-* @summary Nested components and functions, Array.prototype.map(), suppressing eslint.
-* @todo Being stateless, this class could become a pure JavaScript function/module.
+* @demonstrates Nested components and functions, Array.prototype.map(), suppressing eslint.
+* @potential Being stateless, this class could become a pure JavaScript function/module.
 */
-export default class DraughtsBoard extends Component {
+export class DraughtsBoard extends Component {
   renderBoard(squares) {
     return squares.map((row, index) => (
       // The row index will not change from one render to the next and have no other unique ID so:
@@ -19,6 +19,7 @@ export default class DraughtsBoard extends Component {
 
   /**
   * Returns the React elements that form the row of squares.
+  * @method
   * @param {Array<DraughtsBoardSquare>} row The row data.
   */
   renderRow(row) {
@@ -33,6 +34,7 @@ export default class DraughtsBoard extends Component {
 
   /**
   * Returns the React elements that form the board.
+  * @method
   */
   render() {
     return (

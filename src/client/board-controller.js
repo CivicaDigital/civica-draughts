@@ -1,15 +1,14 @@
-import GameController from '../shared/game-controller';
+import { GameService } from '../shared/game-service';
 import * as moves from '../shared/moves';
 import * as squares from '../shared/squares';
 
 /**
  * Controls user interactions.
- * @summary Impure functions, Array.prototype.find().
- * @todo This class could become be used as a data store with an event emitter.
+ * @demonstrates Impure functions, Array.prototype.find().
+ * @potential This class could become be used as a data store with an event emitter.
  */
-export default class BoardController {
+export class BoardController {
   /**
-  * Constructor.
   * @param {number} size The width/length of the board in squares.
   */
   constructor(size) {
@@ -56,7 +55,7 @@ export default class BoardController {
   * @returns {Array<Array<Square>>} A representation of the board, made up of playable/non-playable squares.
   */
   startGame(fen) {
-    this.gameController = new GameController();
+    this.gameController = new GameService();
     this.turn = this.gameController.getFirstTurn(fen);
     this.board = squares.createBoardFromPosition(this.board.size, this.turn.startPosition);
     return this.board.squares;

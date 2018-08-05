@@ -3,7 +3,6 @@
  */
 export class Piece {
   /**
-  * Constructor.
   * @param {boolean} black A value indicating whether the piece is black.
   * @param {boolean} king A value indicating whether the piece is a king.
   */
@@ -22,7 +21,6 @@ export class Piece {
  */
 export class PotentialMove {
   /**
-  * Constructor.
   * @param {boolean} black A value indicating whether this is black move i.e. down the board.
   * @param {number} move The unique identifier of the square immediately diagonally adjacent.
   * @param {number} jump The unique identifier of the square that can be jumped to, over the
@@ -46,7 +44,6 @@ export class PotentialMove {
  */
 export class Square {
   /**
-  * Constructor.
   * @param {boolean} playable A value indicating whether the square is playable.
   * @param {number} identifier Provides a unique identifier of the square's position on the board.
   */
@@ -57,7 +54,8 @@ export class Square {
 
     /** Provides a unique identifier of the square's position on the board,
      * numbered from 1 at the top left and incrementing across the rows and down. Unplayable squares
-     * are numbered similarly but with negative values to provide a unique key for the UI */
+     * are numbered similarly but with negative values to provide a unique key for the UI
+     * @member {number} */
     this.identifier = identifier;
 
     /** A value indicating whether the square is currently highlighted. */
@@ -78,7 +76,6 @@ export class Square {
  */
 export class Board {
   /**
-  * Constructor.
   * @param {number} size The width/length of the board in squares.
   */
   constructor(size, squares, playableSquares) {
@@ -100,7 +97,6 @@ export class Board {
  */
 export class Move {
   /**
-  * Constructor.
   * @param {number} origin The unique identifier of the square from which the moves starts.
   * @param {number} destination The unique identifier of the square in which the move ends.
   * @param {number} jumped The unique identifier of the square the move jumps over, if any.
@@ -125,7 +121,6 @@ export class Move {
  */
 export class Turn {
   /**
-  * Constructor.
   * @param {boolean} blackTurn A value indicating whether it was black's turn.
   * @param {Array<Piece>} startPosition The pieces at the start of the turn, indexed
   * in accordance with the square they are on.
@@ -148,7 +143,6 @@ or draw is declared.
 */
 export class Game {
   /**
-  * Constructor.
   */
   constructor() {
     /** The sequence of turns of the game so far. */

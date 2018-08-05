@@ -1,5 +1,4 @@
-# Introduction
-
+## Introduction
 This document specifies the requirements for a simple web application allowing users to play English draughts, the rules of which are defined [here](rules.md).  
 
 ## System Overview and Terminology

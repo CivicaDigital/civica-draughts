@@ -1,5 +1,6 @@
 /**
 * The web service.
+* @ignore
 * @summary Basic express startup.
 * @todo The functionality will be expanded to include computer player moves etc..
 */

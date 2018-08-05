@@ -1,7 +1,8 @@
 /**
  * Renders a draughts board square from its corresponding data structure.
- * @summary Unicode symbols, CSS class adjustment.
- * @todo Needs testing. Conisder naming conventiom of components/state objects.
+ * @demonstrates Unicode symbols, CSS class adjustment.
+ * @potential Needs testing. Consider naming conventiom of components/state objects.
+ * @module DraughtsBoardSquare
  */
 
 import React from 'react';
@@ -10,6 +11,11 @@ import React from 'react';
 import { Square } from '../shared/data-types';  // Alias to avoid conflict
 import './app.css';
 
+/**
+ * Gets the UTF draughts symbol for the piece.
+ * @param {Piece} piece The piece for which to get the symbol
+ * @returns {string} UTF symbol representing the piece.
+ */
 function getDisplay(piece) {
   if (!piece) {
     return '\u200C ';
@@ -38,8 +44,10 @@ function getClass(square) {
 
 /**
  * Renders a draughts board square from its corresponding data structure.
+ * @param {object} props The React properties.
+ * @returns {DraughtsBoardSquare} Returns the React elements forming the draughts board square.
  */
-const DraughtsBoardSquare = props => (
+export const DraughtsBoardSquare = props => (
   <button
     className={getClass(props.square)}
     key={props.square.identifier.toString()}
@@ -50,5 +58,3 @@ const DraughtsBoardSquare = props => (
     {getDisplay(props.square.piece)}
   </button>
 );
-
-export default DraughtsBoardSquare;

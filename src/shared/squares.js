@@ -1,7 +1,8 @@
 /**
-* Helper functions for setting up a representation of the board, with valid potential moves.
-* @summary Instantiating class instances, Array.prototype.reduce().
-* @todo The valid potential moves could instead be calculated on the fly or squares only created once.
+* Helper functions for setting up a representation of the board, with valid potential moves.<br>
+* Demonstrates: Instantiating class instances, Array.prototype.reduce().<br>
+* Potential: The valid potential moves could instead be calculated on the fly or squares only created once.
+* @module squares
 */
 
 import { Square, PotentialMove, Board } from './data-types';
