@@ -18,4 +18,8 @@ Your work will be assessed throughout the course and you will receive a formal a
 ## Exercises
 * [Exercise 1 – Looking at existing tests](exercise-1.md)
 * [Exercise 2 – Looking at existing code and coding standards](exercise-2.md)
-* [Exercise 3 – Completing a change](exercise-3.md)
+* [Exercise 3 – Fixing a fault](exercise-3.md)
+* [Exercise 4 – Making some simple changes](exercise-4.md)
+* [Exercise 5 – Adding undo functionality](exercise-5.md)
+* [Exercise 6 – Adding a computer player](exercise-6.md)
+* [Exercise 7 – Allowing remote play against another human player](exercise-7.md)
