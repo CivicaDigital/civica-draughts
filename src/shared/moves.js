@@ -118,9 +118,8 @@ function getPositionFromPlayableSquares(playableSquares) {
 }
 
 function isInKingsRow(playableSquares, destination, boardSize) {
-  const halfBoardSize = boardSize / 2;
-  return (destination.identifier <= halfBoardSize
-    || destination.identifier > ((boardSize * boardSize) / 2) - halfBoardSize);
+  return playableSquares.slice(0, boardSize / 2).find(s => s.identifier === destination)
+  || playableSquares.slice(boardSize / -2).find(s => s.identifier === destination);
 }
 
 /**
