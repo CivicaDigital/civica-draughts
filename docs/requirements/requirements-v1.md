@@ -2,8 +2,7 @@
 This document specifies the requirements for a simple web application allowing users to play English draughts, the rules of which are defined [here](rules.md).  
 
 ## System Overview and Terminology
-The initial version of the application will be largely client-side JavaScript:
-* TBD
+The initial version of the application will be largely client-side JavaScript. It is anticipated that future version will include interaction with a Node.js server process.
 
 ## Functional Requirements
 * `M0005` When the default page loads, a new game shall begin.
