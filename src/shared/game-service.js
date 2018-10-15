@@ -37,7 +37,7 @@ export class GameService {
   */
   makeMove(playableSquares, boardSize, origin, destination) {
     let turn = this.game.turns[this.game.turns.length - 1];
-    const move = moves.makeMove(playableSquares, origin, destination, turn.blackTurn);
+    const move = moves.makeMove(playableSquares, origin, destination, turn.blackTurn, boardSize);
     if (move) {
       turn.moves.push(move);
       const newBoard = squares.createBoardFromPosition(boardSize, move.endPosition);

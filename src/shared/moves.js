@@ -117,6 +117,12 @@ function getPositionFromPlayableSquares(playableSquares) {
   return position;
 }
 
+function isInKingsRow(playableSquares, destination, boardSize) {
+  const halfBoardSize = boardSize / 2;
+  return (destination.identifier <= halfBoardSize
+    || destination.identifier > ((boardSize * boardSize) / 2) - halfBoardSize);
+}
+
 /**
  * Moves the piece from the origin to the destination, providing the move is valid.
  * @param {Array<Square>} playableSquares The playable squares of the board, indexed as per their identifier.
@@ -124,8 +130,9 @@ function getPositionFromPlayableSquares(playableSquares) {
  * @param {Square} destination The square on which the piece will reside following the move.
  * @param {boolean} blackTurn A value indicating whether it is black's turn to move.
  * @returns {Move} The move that was made or null if unsuccessful i.e. invalid.
+ * @param {number} boardSize The length/width of the board in squares.
 */
-export function makeMove(playableSquares, origin, destination, blackTurn) {
+export function makeMove(playableSquares, origin, destination, blackTurn, boardSize) {
   const move = getLegalMoves(playableSquares, origin, blackTurn)
     .find(m => m.destination === destination.identifier);
   if (move) {
@@ -137,6 +144,9 @@ export function makeMove(playableSquares, origin, destination, blackTurn) {
       delete position[move.jumped - 1]; // Remove captured piece while keeping indexing intact
     }
     move.endPosition = position;
+    if (isInKingsRow(playableSquares, destination.identifier, boardSize)) {
+      position[destination.identifier - 1].king = true;
+    }
   }
   return move;
 }
