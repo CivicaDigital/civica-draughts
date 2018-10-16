@@ -29,7 +29,7 @@ A square needs to identify its position and whether it is playable i.e. one of t
 
 | Name            | Type            | Description                       | 
 |-----------------|-----------------|-----------------------------------|
-| playable        | `boolean`       | A value indicating whether the piece is black. |
+| playable        | `boolean`       | A value indicating whether the square is playable. |
 | identifier      | `number`        | Provides a unique identifier of the square's position on the board. |
 | potentialMoves  | `Array<PotentialMoves>` | The potential moves possible from the square. |
 | highlighted     | `boolean`       | A value indicating whether the square is currently highlighted. |
