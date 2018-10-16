@@ -1,0 +1,26 @@
+  * Add a check for victory conditions and identify the winner accordingly on the page.
+
+To check if a player has won, see if every remaining piece is only black or white.
+
+If every (piece.black===true) || every (piece.black===false), call Victory function.
+
+To do this, we could create a flag that is set to equal the first element(piece) in pieceArray.
+        boolean colourCheck = pieceArray[0].black.
+
+We then loop through each other piece, and if colourCheck does not equal a piece, break out of function.
+Otherwise if colourCheck is equal to all pieces, run Victory.
+        for( i = 1; pieceArray.length-1; i++){
+          if(colourCheck===pieceArray[i].black){
+            break;
+          } else {
+            //Trigger Victory Event
+          }
+        }
+
+
+Upon victory, trigger event window displaying Winner's name. Window contains a button that when clicked starts a new game.
+
+
+if !( destinationArray.some ( piece => piece.black === true) && ( destinationArray.some ( piece => piece.black === false)) {
+  //VICTORY
+}

@@ -1,9 +1,9 @@
 /**
-* Functions for verifying and making of moves.
-* @demonstrates Basic logic, Array.prototype.reduce(), Array.prototype.map().
-* @potential Needs testing.
-* @module moves
-*/
+ * Functions for verifying and making of moves.
+ * @demonstrates Basic logic, Array.prototype.reduce(), Array.prototype.map().
+ * @potential Needs testing.
+ * @module moves
+ */
 
 import {
   Move,
@@ -21,8 +21,10 @@ import {
  * @returns {boolean} A value indicating whether the piece can move to the destination square.
  */
 export function pieceCanMoveInThisDirection(origin, destination) {
-  return origin.piece.king
-    || (origin.piece.black ^ (origin.identifier > destination.identifier));
+  return (
+    origin.piece.king
+    || origin.piece.black ^ (origin.identifier > destination.identifier)
+  );
 }
 
 /**
@@ -35,9 +37,12 @@ export function pieceCanMoveInThisDirection(origin, destination) {
 function getLegalSimpleMoves(playableSquares, origin, blackTurn) {
   return origin.potentialMoves.reduce((accumulator, move) => {
     const moveDestination = move.move && playableSquares[move.move - 1];
-    if (moveDestination && !moveDestination.piece
+    if (
+      moveDestination
+      && !moveDestination.piece
       && origin.piece.black === blackTurn
-      && pieceCanMoveInThisDirection(origin, moveDestination)) {
+      && pieceCanMoveInThisDirection(origin, moveDestination)
+    ) {
       accumulator.push(new Move(origin.identifier, moveDestination.identifier));
     }
     return accumulator;
@@ -56,12 +61,22 @@ export function getLegalJumpMoves(playableSquares, origin, blackTurn) {
   for (const move of origin.potentialMoves) {
     const moveDestination = move.move && playableSquares[move.move - 1];
     const jumpDestination = move.jump && playableSquares[move.jump - 1];
-    if (moveDestination && moveDestination.piece
-      && jumpDestination && !jumpDestination.piece
+    if (
+      moveDestination
+      && moveDestination.piece
+      && jumpDestination
+      && !jumpDestination.piece
       && pieceCanMoveInThisDirection(origin, jumpDestination)
       && origin.piece.black === blackTurn
-      && (origin.piece.black !== moveDestination.piece.black)) {
-      legalMoves.push(new Move(origin.identifier, jumpDestination.identifier, moveDestination.identifier));
+      && origin.piece.black !== moveDestination.piece.black
+    ) {
+      legalMoves.push(
+        new Move(
+          origin.identifier,
+          jumpDestination.identifier,
+          moveDestination.identifier
+        )
+      );
     }
   }
   return legalMoves;
@@ -75,8 +90,10 @@ export function getLegalJumpMoves(playableSquares, origin, blackTurn) {
  */
 function legalJumpMoveExists(playableSquares, blackTurn) {
   for (const square of playableSquares) {
-    if (square.piece
-      && getLegalJumpMoves(playableSquares, square, blackTurn).length > 0) {
+    if (
+      square.piece
+      && getLegalJumpMoves(playableSquares, square, blackTurn).length > 0
+    ) {
       return true;
     }
   }
@@ -118,8 +135,14 @@ function getPositionFromPlayableSquares(playableSquares) {
 }
 
 function isInKingsRow(playableSquares, destination, boardSize) {
-  return playableSquares.slice(0, boardSize / 2).find(s => s.identifier === destination)
-  || playableSquares.slice(boardSize / -2).find(s => s.identifier === destination);
+  return (
+    playableSquares
+      .slice(0, boardSize / 2)
+      .find(s => s.identifier === destination)
+    || playableSquares
+      .slice(boardSize / -2)
+      .find(s => s.identifier === destination)
+  );
 }
 
 /**
@@ -130,13 +153,21 @@ function isInKingsRow(playableSquares, destination, boardSize) {
  * @param {boolean} blackTurn A value indicating whether it is black's turn to move.
  * @returns {Move} The move that was made or null if unsuccessful i.e. invalid.
  * @param {number} boardSize The length/width of the board in squares.
-*/
-export function makeMove(playableSquares, origin, destination, blackTurn, boardSize) {
-  const move = getLegalMoves(playableSquares, origin, blackTurn)
-    .find(m => m.destination === destination.identifier);
+ */
+export function makeMove(
+  playableSquares,
+  origin,
+  destination,
+  blackTurn,
+  boardSize
+) {
+  const move = getLegalMoves(playableSquares, origin, blackTurn).find(
+    m => m.destination === destination.identifier
+  );
   if (move) {
-    const position = getPositionFromPlayableSquares(playableSquares)
-      .map(piece => new Piece(piece.black, piece.king)); // Clone objects to retain state of original
+    const position = getPositionFromPlayableSquares(playableSquares).map(
+      piece => new Piece(piece.black, piece.king)
+    ); // Clone objects to retain state of original
     position[destination.identifier - 1] = position[origin.identifier - 1]; // Assign to new position
     delete position[origin.identifier - 1]; // Remove from old position while keeping indexing intact
     if (move.jumped) {

@@ -134,6 +134,9 @@ export class Turn {
 
     /** The moves taking place within the turn. */
     this.moves = [];
+
+    /** The state of victory */
+    this.victoryState = false;
   }
 }
 
