@@ -11,6 +11,7 @@ import React from 'react';
 import { Square } from '../shared/data-types';  // Alias to avoid conflict
 import './app.css';
 
+
 /**
  * Gets the UTF draughts symbol for the piece.
  * @param {Piece} piece The piece for which to get the symbol

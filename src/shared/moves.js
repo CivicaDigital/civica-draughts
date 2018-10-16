@@ -134,7 +134,8 @@ export function makeMove(playableSquares, origin, destination, blackTurn, boardS
       .map(piece => new Piece(piece.black, piece.king)); // Clone objects to retain state of original
     position[destination.identifier - 1] = position[origin.identifier - 1]; // Assign to new position
     if (destination.identifier <= halfBoardSize
-      || destination.identifier > ((boardSize * boardSize) / 2) - halfBoardSize) { // works out first and last rows for king state.
+      || destination.identifier
+      > ((boardSize * boardSize) / 2) - halfBoardSize) { // works out first and last rows for king state.
       position[destination.identifier - 1].king = true;
     }
     delete position[origin.identifier - 1]; // Remove from old position while keeping indexing intact
