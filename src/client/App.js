@@ -23,7 +23,8 @@ export class App extends Component {
     /** Stores the state of this component. */
     this.state = {
       squares: this.boardController.startGame(props.fen),
-      turn: this.boardController.turn
+      turn: this.boardController.turn,
+      victoryState: this.boardController.turn
     };
   }
 
@@ -43,6 +44,16 @@ export class App extends Component {
   handleSquareClick(square) {
     this.boardController.squareClicked(square);
     this.setState({ squares: this.boardController.board.squares, turn: this.boardController.turn });
+  }
+
+  /**
+  * Handles when a player wins the game.
+  * @method
+  * @param {Square} square The square that was clicked.
+  */
+  handleVictoryState(square) {
+    this.boardController.squareClicked(square);
+    this.setState({ turn: this.boardController.turn });
   }
 
   /**

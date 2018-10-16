@@ -9,8 +9,8 @@ import * as squares from '../shared/squares';
  */
 export class BoardController {
   /**
-  * @param {number} size The width/length of the board in squares.
-  */
+   * @param {number} size The width/length of the board in squares.
+   */
   constructor(size) {
     /** Controller for the current game. */
     this.gameController = null;
@@ -22,10 +22,21 @@ export class BoardController {
     this.board = squares.createBoardFromPosition(size, null);
   }
 
+  static victoryCheck(position) {
+    if (
+      !(
+        position.some(piece => piece.black === true)
+        && position.some(piece => piece.black === false)
+      )
+    ) {
+      return true;
+    } return false;
+  }
+
   /**
-  * Handles a square on the board being clicked, selecting or moving its piece as appropriate.
-  * @param {Square} square The square that was clicked.
-  */
+   * Handles a square on the board being clicked, selecting or moving its piece as appropriate.
+   * @param {Square} square The square that was clicked.
+   */
   squareClicked(square) {
     if (square.piece && square.piece.black === this.turn.blackTurn) {
       this.selectSquareAndHighlightMoves(this.board.playableSquares, square);
@@ -34,14 +45,20 @@ export class BoardController {
       // If a square with a piece in was selected previously
       if (previousSquare && previousSquare.piece) {
         // Make move if possible and return updated turn object, or a new turn if move ended previous one
-        this.turn = this.gameController.makeMove(this.board.playableSquares,
+        this.turn = this.gameController.makeMove(
+          this.board.playableSquares,
           this.board.size,
           previousSquare,
-          square);
+          square
+        );
         const movesCount = this.turn.moves.length;
 
         // Get the end position of the previous move of this turn, or the turn start position if new turn
-        const position = movesCount ? this.turn.moves[movesCount - 1].endPosition : this.turn.startPosition;
+        const position = movesCount
+          ? this.turn.moves[movesCount - 1].endPosition
+          : this.turn.startPosition;
+
+        this.turn = BoardController.victoryCheck(position);
 
         // Set state following move
         this.board = squares.createBoardFromPosition(this.board.size, position);
@@ -50,25 +67,29 @@ export class BoardController {
   }
 
   /**
-  * Start a new game at the position described by the supplied fen.
-  * @param {string} fen The FEN describing the position of the pieces and the player whose turn it is.
-  * @returns {Array<Array<Square>>} A representation of the board, made up of playable/non-playable squares.
-  */
+   * Start a new game at the position described by the supplied fen.
+   * @param {string} fen The FEN describing the position of the pieces and the player whose turn it is.
+   * @returns {Array<Array<Square>>} A representation of the board, made up of playable/non-playable squares.
+   */
   startGame(fen) {
     this.gameController = new GameService();
     this.turn = this.gameController.getFirstTurn(fen);
-    this.board = squares.createBoardFromPosition(this.board.size, this.turn.startPosition);
+    this.board = squares.createBoardFromPosition(
+      this.board.size,
+      this.turn.startPosition
+    );
     return this.board.squares;
   }
 
   /**
-  * Highlights legal moves for the supplied square and, if at least one found, selects the square.
-  * @param {Array<Square>} playableSquares The playable squares of the board, indexed as per their identifier.
-  * @param {Square} square The square to be selected.
-  */
+   * Highlights legal moves for the supplied square and, if at least one found, selects the square.
+   * @param {Array<Square>} playableSquares The playable squares of the board, indexed as per their identifier.
+   * @param {Square} square The square to be selected.
+   */
   selectSquareAndHighlightMoves(playableSquares, square) {
     BoardController.deselectAndUnhighlightAllSquares(playableSquares);
-    moves.getLegalMoves(playableSquares, square, this.turn.blackTurn)
+    moves
+      .getLegalMoves(playableSquares, square, this.turn.blackTurn)
       .forEach((move) => {
         playableSquares[move.destination - 1].highlighted = true;
       });
@@ -76,9 +97,9 @@ export class BoardController {
   }
 
   /**
-  * Removes all highlighting and selection from board squares.
-  * @param {Array<Square>} playableSquares The playable squares of the board, indexed as per their identifier.
-  */
+   * Removes all highlighting and selection from board squares.
+   * @param {Array<Square>} playableSquares The playable squares of the board, indexed as per their identifier.
+   */
   static deselectAndUnhighlightAllSquares(playableSquares) {
     for (const square of playableSquares) {
       square.selected = false;
