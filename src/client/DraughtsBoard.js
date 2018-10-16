@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { DraughtsBoardSquare } from './DraughtsBoardSquare';
 import './app.css';
-import { NameForm } from './InputNameComponent';
+
 
 /**
 * Renders the draughts board from its data structure comprising of squares.
@@ -39,19 +39,9 @@ export class DraughtsBoard extends Component {
   */
   render() {
     return (
-      <div key="game">
-        <div key="board">
-          { this.renderBoard(this.props.squares)}
-        </div>
-        <div key="nameField" />
-        <NameForm
-          myID="White"
-        />
-        <NameForm
-          myID="Black"
-        />
+      <div key="board">
+        { this.renderBoard(this.props.squares)}
       </div>
-
     );
   }
 }
