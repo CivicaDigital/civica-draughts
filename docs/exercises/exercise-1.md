@@ -16,7 +16,8 @@ This exercise has the following main aims:
 | ./test/shared/squares.test.js	  | Unit tests for ./src/shared/squares.js. |
 
 ### What to do
-1. Open your local repository folder in Visual Studio Code.
+1. Clone the repository from https://github.com/CivicaDigital/civica-draughts.git.
+1. Create a new branch called exercise-1 and check it out.
 1. Locate moves.js and squares.js. These files are fully commented and written to the JavaScript standards enforced by ESLint, which have been configured for the purposes of this exercise.
 1. Referring to the design documentation, familiarise yourself with the content and functionality of these modules. A good understanding of both syntax and function is important so please highlight anything that requires further clarification – it is expected that some assistance will be required at this stage. Key concepts covered include:
  * The basics: variables, constants, functions, parameters and loops.
