@@ -37,7 +37,7 @@ export class GameService {
   */
   makeMove(playableSquares, boardSize, origin, destination) {
     let turn = this.game.turns[this.game.turns.length - 1];
-    const move = moves.makeMove(playableSquares, origin, destination, turn.blackTurn, boardSize);
+    const move = moves.makeMove(playableSquares, origin, destination, turn.blackTurn);
     if (move) {
       turn.moves.push(move);
       const newBoard = squares.createBoardFromPosition(boardSize, move.endPosition);
@@ -48,6 +48,34 @@ export class GameService {
       }
     }
     return turn;
+  }
+
+  undoMove() {
+    /** if this.turn.moves.length === 1, get the start position snapshot of the turn with turn.startPosition
+    * else if moves > 1, find the end position snapshot of the previous move */
+    const turn = this.game.turns[this.game.turns.length - 1];
+    const undoposition = turn.moves.length <= 1 ? turn.startPosition
+      : turn.moves[turn.moves.length - 2].endPosition;
+    /** pop the move that is being undone */
+    turn.moves.pop();
+    return undoposition;
+  }
+
+  makeUndo() {
+  /** find if there are existing moves in the current turn
+  * if none, pop current turn
+  */
+    const turn = this.game.turns[this.game.turns.length - 1];
+
+
+    if (turn.moves.length === 0) {
+      this.game.turns.pop();
+    }
+    /** Call undomove function: from moves.js */
+    this.undoMove();
+
+
+    return this.game.turns.length;
   }
 
   /**

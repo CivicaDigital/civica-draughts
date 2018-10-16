@@ -45,6 +45,11 @@ export class App extends Component {
     this.setState({ squares: this.boardController.board.squares, turn: this.boardController.turn });
   }
 
+  /** undoButtonClick() {
+    this.boardController.undoClicked();
+  }
+  */
+
   /**
   * Returns the React elements forming the page for which React will update the DOM accordingly.
   * @method

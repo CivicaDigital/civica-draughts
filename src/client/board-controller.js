@@ -1,3 +1,4 @@
+import { EventEmitter } from 'events';
 import { GameService } from '../shared/game-service';
 import * as moves from '../shared/moves';
 import * as squares from '../shared/squares';
@@ -17,6 +18,10 @@ export class BoardController {
 
     /** The turn's state. */
     this.turn = null;
+
+    /** Event emitter */
+    this.emitter = new EventEmitter();
+    /** this.emitter.on('start', 90 => console.log('oink oink 1')); */
 
     /** The current board's state. */
     this.board = squares.createBoardFromPosition(size, null);
@@ -48,6 +53,14 @@ export class BoardController {
       }
     }
   }
+
+  /**
+   undoClicked() {
+    this.gameService.makeUndo();
+    Set state following undo
+    this.board = squares.createBoardFromPosition(Board.size, undoposition);
+  }
+  */
 
   /**
   * Start a new game at the position described by the supplied fen.
