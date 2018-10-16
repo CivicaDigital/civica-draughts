@@ -86,12 +86,12 @@ export class App extends Component {
           <NameForm
             myID={nameStateWhite}
             onChange={whitename => this.handleNameChangeWhite(whitename)}
-            label="Player one: "
+            label="Player One: "
           />
           <NameForm
             myID={nameStateBlack}
             onChange={blackname => this.handleNameChangeBlack(blackname)}
-            label="Player two: "
+            label="Player Two: "
           />
         </div>
       </div>
