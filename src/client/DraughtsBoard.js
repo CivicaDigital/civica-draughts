@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { DraughtsBoardSquare } from './DraughtsBoardSquare';
 import './app.css';
 
+
 /**
 * Renders the draughts board from its data structure comprising of squares.
 * @demonstrates Nested components and functions, Array.prototype.map(), suppressing eslint.
@@ -39,7 +40,7 @@ export class DraughtsBoard extends Component {
   render() {
     return (
       <div key="board">
-        {this.renderBoard(this.props.squares)}
+        { this.renderBoard(this.props.squares)}
       </div>
     );
   }
