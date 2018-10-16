@@ -68,4 +68,70 @@ describe('game-service module', () => {
       });
     });
   });
+  describe('when the undo button is clicked', () => {
+    describe('if one move has been made in the current turn', () => {
+      it('returns the supplied start position of that turn', () => {
+        const gameService = new GameService();
+        const newturn = new data.Turn(false, [1]);
+        const move1 = new data.Move(5, 14, 1);
+        const move1endpos = 2;
+        move1.endPosition.push(move1endpos);
+        newturn.moves.push(move1);
+        gameService.game.turns.push(newturn);
+        const result = gameService.undoMove();
+        expect(result).toEqual([1]);
+      });
+    });
+    describe('if more than one move has been made in the current turn', () => {
+      it('returns the supplied end position of the previous move ', () => {
+        const gameService = new GameService();
+        const newturn = new data.Turn(false, 'W:W5,K29:B1,2');
+        const move1 = new data.Move(5, 14, 1);
+        const move1endpos = 2;
+        move1.endPosition.push(move1endpos);
+        newturn.moves.push(move1);
+        const move2 = new data.Move(5, 14, 1);
+        const move2endpos = 3;
+        move2.endPosition.push(move2endpos);
+        newturn.moves.push(move2);
+        gameService.game.turns.push(newturn);
+        const result = gameService.undoMove();
+        expect(result).toEqual([2]);
+      });
+    });
+    describe('if there have been no moves in the current turn', () => {
+      it('deletes the current turn, returning turn length of 1', () => {
+        const gameService = new GameService();
+        const newturn1 = new data.Turn(false, 'W:W5,K29:B1,2');
+        const move1 = new data.Move(5, 9, 1);
+        const move1endpos = 2;
+        move1.endPosition.push(move1endpos);
+        newturn1.moves.push(move1);
+        gameService.game.turns.push(newturn1);
+        const newturn2 = new data.Turn(false, 'W:W9,K29:B1,2');
+        gameService.game.turns.push(newturn2);
+        const result = gameService.makeUndo();
+        expect(result).toEqual(1);
+      });
+    });
+    describe('if there has been a move in the current turn', () => {
+      it('does not delete the current turn, returning turn length of 2', () => {
+        const gameService = new GameService();
+        const newturn1 = new data.Turn(false, 'W:W5,K29:B1,2');
+        const move1 = new data.Move(5, 9, 1);
+        const move1endpos = 2;
+        move1.endPosition.push(move1endpos);
+        newturn1.moves.push(move1);
+        gameService.game.turns.push(newturn1);
+        const newturn2 = new data.Turn(false, 'W:W9,K29:B1,2');
+        const move2 = new data.Move(5, 14, 1);
+        const move2endpos = 2;
+        move2.endPosition.push(move2endpos);
+        newturn2.moves.push(move2);
+        gameService.game.turns.push(newturn2);
+        const result = gameService.makeUndo();
+        expect(result).toEqual(2);
+      });
+    });
+  });
 });
