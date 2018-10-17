@@ -1,0 +1,2 @@
+BoardScorer - Turn -> Integer
+TurnScorer - Array of Position -> Array of Position/Integer Pairs
