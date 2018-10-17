@@ -23,6 +23,14 @@ describe('App integration tests', () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
+
+    test('The board displays the correct name and format', () => {
+      const name = 'Test';
+      const tree = renderer
+        .create(<App size={8} nameWhite={name} />)
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 
   describe('Legal moves are highlighted correctly when a piece is selected', () => {

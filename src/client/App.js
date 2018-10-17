@@ -25,8 +25,8 @@ export class App extends Component {
     this.state = {
       squares: this.boardController.startGame(props.fen),
       turn: this.boardController.turn,
-      nameStateBlack: 'Black',
-      nameStateWhite: 'White'
+      nameStateBlack: (props.myID) || 'Black',
+      nameStateWhite: (props.nameWhite) || 'White'
     };
   }
 

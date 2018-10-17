@@ -1,5 +1,580 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`App integration tests The snapshot tests The board displays the correct name and format 1`] = `
+<div>
+  <div>
+    <h1>
+      Draughts
+    </h1>
+    <div>
+      Test's Turn
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <button
+          className="square unplayable"
+          id="square--1"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-1"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛂
+        </button>
+        <button
+          className="square unplayable"
+          id="square--2"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-2"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛂
+        </button>
+        <button
+          className="square unplayable"
+          id="square--3"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-3"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛂
+        </button>
+        <button
+          className="square unplayable"
+          id="square--4"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-4"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛂
+        </button>
+      </div>
+      <div>
+        <button
+          className="square playable"
+          id="square-5"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛂
+        </button>
+        <button
+          className="square unplayable"
+          id="square--5"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-6"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛂
+        </button>
+        <button
+          className="square unplayable"
+          id="square--6"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-7"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛂
+        </button>
+        <button
+          className="square unplayable"
+          id="square--7"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-8"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛂
+        </button>
+        <button
+          className="square unplayable"
+          id="square--8"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+      </div>
+      <div>
+        <button
+          className="square unplayable"
+          id="square--9"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-9"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--10"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-10"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--11"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-11"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--12"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-12"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+      </div>
+      <div>
+        <button
+          className="square playable"
+          id="square-13"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--13"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-14"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--14"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-15"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--15"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-16"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--16"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+      </div>
+      <div>
+        <button
+          className="square unplayable"
+          id="square--17"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-17"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--18"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-18"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--19"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-19"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--20"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-20"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+      </div>
+      <div>
+        <button
+          className="square playable"
+          id="square-21"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--21"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-22"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--22"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-23"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--23"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-24"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square unplayable"
+          id="square--24"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+      </div>
+      <div>
+        <button
+          className="square unplayable"
+          id="square--25"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-25"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛀
+        </button>
+        <button
+          className="square unplayable"
+          id="square--26"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-26"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛀
+        </button>
+        <button
+          className="square unplayable"
+          id="square--27"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-27"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛀
+        </button>
+        <button
+          className="square unplayable"
+          id="square--28"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-28"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛀
+        </button>
+      </div>
+      <div>
+        <button
+          className="square playable"
+          id="square-29"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛀
+        </button>
+        <button
+          className="square unplayable"
+          id="square--29"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-30"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛀
+        </button>
+        <button
+          className="square unplayable"
+          id="square--30"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-31"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛀
+        </button>
+        <button
+          className="square unplayable"
+          id="square--31"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+        <button
+          className="square playable"
+          id="square-32"
+          onClick={[Function]}
+          type="button"
+        >
+          ⛀
+        </button>
+        <button
+          className="square unplayable"
+          id="square--32"
+          onClick={[Function]}
+          type="button"
+        >
+          ‌ 
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <form>
+      <label
+        htmlFor="nameForm"
+      >
+        Player One: 
+        <input
+          id="Player One: "
+          maxLength={10}
+          onChange={[Function]}
+          type="text"
+          value="Test"
+        />
+      </label>
+    </form>
+    <form>
+      <label
+        htmlFor="nameForm"
+      >
+        Player Two: 
+        <input
+          id="Player Two: "
+          maxLength={10}
+          onChange={[Function]}
+          type="text"
+          value="Black"
+        />
+      </label>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`App integration tests The snapshot tests The board renders correctly when an initial position is supplied 1`] = `
 <div>
   <div>
@@ -7,7 +582,7 @@ exports[`App integration tests The snapshot tests The board renders correctly wh
       Draughts
     </h1>
     <div>
-      White turn
+      White's Turn
     </div>
   </div>
   <div>
@@ -541,6 +1116,36 @@ exports[`App integration tests The snapshot tests The board renders correctly wh
         </button>
       </div>
     </div>
+  </div>
+  <div>
+    <form>
+      <label
+        htmlFor="nameForm"
+      >
+        Player One: 
+        <input
+          id="Player One: "
+          maxLength={10}
+          onChange={[Function]}
+          type="text"
+          value="White"
+        />
+      </label>
+    </form>
+    <form>
+      <label
+        htmlFor="nameForm"
+      >
+        Player Two: 
+        <input
+          id="Player Two: "
+          maxLength={10}
+          onChange={[Function]}
+          type="text"
+          value="Black"
+        />
+      </label>
+    </form>
   </div>
 </div>
 `;
@@ -552,7 +1157,7 @@ exports[`App integration tests The snapshot tests The board renders correctly wh
       Draughts
     </h1>
     <div>
-      White turn
+      White's Turn
     </div>
   </div>
   <div>
@@ -1086,6 +1691,36 @@ exports[`App integration tests The snapshot tests The board renders correctly wh
         </button>
       </div>
     </div>
+  </div>
+  <div>
+    <form>
+      <label
+        htmlFor="nameForm"
+      >
+        Player One: 
+        <input
+          id="Player One: "
+          maxLength={10}
+          onChange={[Function]}
+          type="text"
+          value="White"
+        />
+      </label>
+    </form>
+    <form>
+      <label
+        htmlFor="nameForm"
+      >
+        Player Two: 
+        <input
+          id="Player Two: "
+          maxLength={10}
+          onChange={[Function]}
+          type="text"
+          value="Black"
+        />
+      </label>
+    </form>
   </div>
 </div>
 `;
