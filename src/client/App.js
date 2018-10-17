@@ -25,8 +25,8 @@ export class App extends Component {
     this.state = {
       squares: this.boardController.startGame(props.fen),
       turn: this.boardController.turn,
-      nameStateBlack: '',
-      nameStateWhite: ''
+      nameStateBlack: 'Black',
+      nameStateWhite: 'White'
     };
   }
 
@@ -65,7 +65,7 @@ export class App extends Component {
       squares, turn, nameStateWhite, nameStateBlack
     } = this.state;
 
-    const turnText = turn && turn.blackTurn ? nameStateBlack : nameStateWhite;
+    const turnText = turn && turn.blackTurn ? `${nameStateBlack}'s Turn` : `${nameStateWhite}'s Turn`;
     return (
       <div>
         <div>

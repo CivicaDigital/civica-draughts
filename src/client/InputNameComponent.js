@@ -5,10 +5,11 @@ export const NameForm = props => (
     <label htmlFor="nameForm">
       {props.label}
       <input
-        id={props.myID}
+        id={props.label}
         type="text"
         value={props.myID}
         onChange={props.onChange}
+        maxLength={10}
       />
     </label>
   </form>
