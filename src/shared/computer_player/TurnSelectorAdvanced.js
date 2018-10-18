@@ -1,13 +1,10 @@
+import TurnSelector from './TurnSelector';
+
 class TurnSelectorAdvanced {
   static call(turn) {
-    const worstNextTurn = turn.map(x => TurnSelectorAdvanced.getWorstValue(x));
-
-    let bestTurn = worstNextTurn[0];
-    for (let i = 0; i < worstNextTurn.length; i++) {
-      if (bestTurn.value < worstNextTurn[i].value) {
-        bestTurn = worstNextTurn[i];
-      }
-    }
+    const worstNextTurn = turn.map(x => ({ turn: x.turn, value: TurnSelectorAdvanced.getWorstValue(x) }));
+    const bestPlay = TurnSelector.call(worstNextTurn);
+    return bestPlay;
   }
 
   static getWorstValue(turn) {
@@ -17,12 +14,3 @@ class TurnSelectorAdvanced {
   }
 }
 export default TurnSelectorAdvanced;
-
-/*
-    turn.value = scores.map Math.min(...scores));
-
-    const bestTurn = turn.reduce((acc, turn) => {
-      if (acc === undefined) acc = turn;
-      if (acc.value < turn.furtherTurns.value) acc = turn;
-      return acc;
-    }, undefined); */
