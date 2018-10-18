@@ -48,10 +48,14 @@ describe('Advanced Turn Selection test', () => {
         }, {
           turn: 2,
           value: 6,
+          furtherTurn: [{ turn: 1, value: -4 }, { turn: 2, value: 8 }]
+        }, {
+          turn: 3,
+          value: 3,
           furtherTurn: []
         }];
         const result = TurnSelectorAdvanced.call(turn); // Act
-        expect(result).toEqual(2); // Assert
+        expect(result).toEqual(3); // Assert
       });
     });
   });
