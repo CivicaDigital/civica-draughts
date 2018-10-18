@@ -18,7 +18,7 @@ describe('Turn Selection test', () => {
     });
     describe('When presented with no turns ', () => {
       it('gives a undefined result', () => {
-        const turn = [{ }];
+        const turn = [];
         const result = TurnSelector.call(turn); // Act
         expect(result).toEqual(undefined); // Assert
       });

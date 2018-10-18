@@ -2,9 +2,15 @@ import TurnSelector from './TurnSelector';
 
 class TurnSelectorAdvanced {
   static call(turn) {
-    const worstNextTurn = TurnSelectorAdvanced.getOponentsBestTurn(turn);
-    const bestPlay = TurnSelector.call(worstNextTurn);
-    return bestPlay;
+    if (turn.length > 0) {
+      let bestPlay = turn;
+      const worstNextTurn = TurnSelectorAdvanced.getOponentsBestTurn(turn);
+      if (worstNextTurn !== null) {
+        bestPlay = TurnSelector.call(worstNextTurn);
+      } else { bestPlay = TurnSelector.call(turn); }
+      return bestPlay;
+    }
+    return undefined;
   }
 
   static getWorstValue(turn) {
