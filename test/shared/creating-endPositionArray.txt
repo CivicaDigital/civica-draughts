@@ -1,0 +1,6 @@
+What I have:      Array[{Turn1[startPosition]}]
+
+What I need:      Array[{Turn1[{moves[endPosition=startPosition]}]}]
+
+[].map (turn => ({ move: [ {endPosition: turn.startPosition}]}));
+

@@ -1,6 +1,6 @@
 export class boardScorer {
-  static scorer(turninput) {
-    const boardStateArr = turninput.startPosition;
+  static call(turninput) {
+    const boardStateArr = turninput.startPosition; // const boardStateArr = turninput.moves[moves.length-1].endPosition;
     const scoreCheckedArr = boardStateArr.map(boardScorer.colourKingCheck);
     const totalScore = scoreCheckedArr.reduce((a, b) => a + b, 0);
     return totalScore;
@@ -11,7 +11,7 @@ export class boardScorer {
     if (input.king) {
       score = 2;
     }
-    if (input.black) {
+    if (!input.black) {
       score *= -1;
     }
     return score;
