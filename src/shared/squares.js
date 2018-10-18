@@ -48,7 +48,7 @@ function getMoves(squares, columnIndex, rowIndex, xdirection, ydirection) {
  * Sets the valid moves on the squares of the board, for verification of legal moves later.
  * @param {Array<Array<Square>>} squares The squares that make up the board.
  */
-function setPotentialMoves(squares) {
+export function setPotentialMoves(squares) {
   for (let i = 0; i < squares.length; i++) {
     const row = squares[i];
     for (let j = 0; j < row.length; j++) {
