@@ -1,50 +1,42 @@
-/**
- * retrieve the start position of the turn
- * iterate through each piece
- * check for jump moves first
- * if jump moves exist, find end positions of all jump moves
- * push the new end positions to the validmoves array
- *
- * if no jump moves exist, find end positions of all normal moves
- * push the new end positions to the validmoves array
- *
- * return the valid moves array
- */
 
 import * as moves from '../moves';
+import { Turn } from '../data-types';
 
 class ValidMoveFinder {
-  static movefinder(playableSquares, blackturn, origin) {
-    let aimove;
-    if (moves.legalJumpMoveExists(playableSquares, blackturn)) {
-      aimove = moves.getLegalJumpMoves(playableSquares, origin, blackturn);
-    } else {
-      aimove = moves.getLegalMoves();
-    }
-    return aimove;
-  }
-
   static call(boardController) {
-    const pieceorigins = this.determinepieceorigins();
+    const pieceorigins = this.determinepieceorigins(boardController);
     const validmoves = [];
-    const playableSquares = boardController.board.playableSquares;
-    const blackturn = boardController.turn.blackturn;
+    const blackturn = true;
     pieceorigins.forEach((element) => {
-      const origin = boardController.board.playableSquares[element];
-      const aimove = moves.getLegalMoves(playableSquares, origin, blackturn);
-      validmoves.push(aimove);
+      const origin = boardController.board.playableSquares[element - 1];
+      const aimove = moves.getLegalMoves(
+        boardController.board.playableSquares,
+        origin,
+        blackturn
+      );
+      const aimoves = aimove.map(move => [move]);
+      validmoves.push(aimoves);
     });
-    return validmoves;
+    // check for additional jump move(s)
+
+    // console.log(validmoves);
+    const validmovesflattened = [].concat(...validmoves);
+    // console.log(validmovesflattened);
+    const validturns = [];
+    validmovesflattened.forEach((element) => {
+      const newturn = new Turn(true, boardController.turn.startposition);
+      newturn.moves = element;
+      validturns.push(newturn);
+    });
+    return validturns;
   }
 
   static determinepieceorigins(boardController) {
     const pieceorigins = [];
     const startpos = boardController.turn.startPosition;
     startpos.forEach((element, index) => {
-      if (element !== 'undefined') {
-        if (element.black === true) {
-          pieceorigins.push(index + 1);
-        }
+      if (element !== 'undefined' && element.black === true) {
+        pieceorigins.push(index + 1);
       }
     });
     return pieceorigins;
