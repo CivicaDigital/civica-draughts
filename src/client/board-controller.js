@@ -1,6 +1,7 @@
 import { GameService } from '../shared/game-service';
 import * as moves from '../shared/moves';
 import * as squares from '../shared/squares';
+import { boardScorer } from '../shared/computer_player/board-scorer';
 
 /**
  * Controls user interactions.
@@ -42,7 +43,6 @@ export class BoardController {
 
         // Get the end position of the previous move of this turn, or the turn start position if new turn
         const position = movesCount ? this.turn.moves[movesCount - 1].endPosition : this.turn.startPosition;
-
         // Set state following move
         this.board = squares.createBoardFromPosition(this.board.size, position);
       }
