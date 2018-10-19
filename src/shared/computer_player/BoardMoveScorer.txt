@@ -1,5 +1,0 @@
-BoardScorer - Turn -> Integer
-TurnScorer - Array of Position -> Array of Position/Integer Pairs
-
-
-[].map( x => ({ turn: x, value: x.function }) ); == [ { turn: "one", size: 1}, ... ]

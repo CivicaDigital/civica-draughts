@@ -57,19 +57,25 @@ describe('turn-scorer module', () => {
          */
 
         const fen1 = 'W:W6,14,28:B8,16,18,24';
-        const positions1 = getTurnFromFen(fen1);
+        const turn1 = getTurnFromFen(fen1);
+        const move1 = { endPosition: turn1.startPosition };
+        turn1.moves.push(move1);
         const fen2 = 'W:W5,22,28:B8,16,17,18,24';
-        const positions2 = getTurnFromFen(fen2);
+        const turn2 = getTurnFromFen(fen2);
+        const move2 = { endPosition: turn2.startPosition };
+        turn2.moves.push(move2);
         const fen3 = 'W:WK3,14,22:B9,17,18';
-        const positions3 = getTurnFromFen(fen3);
-        const posArr = [positions1, positions2, positions3];
+        const turn3 = getTurnFromFen(fen3);
+        const move3 = { endPosition: turn3.startPosition };
+        turn3.moves.push(move3);
+        const posArr = [turn1, turn2, turn3];
 
         const result = turnscore.turnScorer.call(posArr); //  Act
         expect(result).toEqual([
           //  Assert
-          { turn: positions1, value: 1 },
-          { turn: positions2, value: 2 },
-          { turn: positions3, value: -1 }
+          { turn: turn1, value: 1 },
+          { turn: turn2, value: 2 },
+          { turn: turn3, value: -1 }
         ]);
       });
       it('calculates and returns an array of possible turns with their associated value, black turn', () => {
@@ -131,22 +137,30 @@ describe('turn-scorer module', () => {
          */
 
         const fen1 = 'B:B9,16,K17:W7,19';
-        const positions1 = getTurnFromFen(fen1);
+        const turn1 = getTurnFromFen(fen1);
+        const move1 = { endPosition: turn1.startPosition };
+        turn1.moves.push(move1);
         const fen2 = 'B:BK1,16,18:W6,7,19';
-        const positions2 = getTurnFromFen(fen2);
+        const turn2 = getTurnFromFen(fen2);
+        const move2 = { endPosition: turn2.startPosition };
+        turn2.moves.push(move2);
         const fen3 = 'B:BK3,9,16:WK14,19';
-        const positions3 = getTurnFromFen(fen3);
+        const turn3 = getTurnFromFen(fen3);
+        const move3 = { endPosition: turn3.startPosition };
+        turn3.moves.push(move3);
         const fen4 = 'B:BK1,9,23:W6,7,K14';
-        const positions4 = getTurnFromFen(fen4);
-        const posArr = [positions1, positions2, positions3, positions4];
+        const turn4 = getTurnFromFen(fen4);
+        const move4 = { endPosition: turn4.startPosition };
+        turn4.moves.push(move4);
+        const posArr = [turn1, turn2, turn3, turn4];
 
         const result = turnscore.turnScorer.call(posArr); //  Act
         expect(result).toEqual([
           //  Assert
-          { turn: positions1, value: 2 },
-          { turn: positions2, value: 1 },
-          { turn: positions3, value: 1 },
-          { turn: positions4, value: 0 }
+          { turn: turn1, value: 2 },
+          { turn: turn2, value: 1 },
+          { turn: turn3, value: 1 },
+          { turn: turn4, value: 0 }
         ]);
       });
     });

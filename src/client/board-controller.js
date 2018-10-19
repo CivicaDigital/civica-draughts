@@ -43,7 +43,6 @@ export class BoardController {
 
         // Get the end position of the previous move of this turn, or the turn start position if new turn
         const position = movesCount ? this.turn.moves[movesCount - 1].endPosition : this.turn.startPosition;
-        console.log(boardScorer.scorer(position));
         // Set state following move
         this.board = squares.createBoardFromPosition(this.board.size, position);
       }
